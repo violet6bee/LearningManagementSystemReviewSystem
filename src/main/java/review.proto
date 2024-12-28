@@ -1,0 +1,32 @@
+syntax = "proto3";
+package review;
+option java_outer_classname = "Review";
+option java_package = "review";
+
+message CreateReviewRequest {
+  string newReview = 1;
+  string token = 2;
+}
+
+message ReadReviewRequest {
+  string readReview = 1;
+}
+
+message DeleteReviewRequest {
+  string deleteReview = 1;
+  string token = 2;
+}
+
+message CreateReviewResponse {
+  int32 userId = 1;
+  int32 subjectId = 2;
+  string text = 3;
+}
+message EmptyResponse {
+}
+
+service ReviewsService {
+  rpc CreateReview(CreateReviewRequest) returns (CreateReviewResponse);
+  rpc ReadReview(ReadReviewRequest) returns (CreateReviewResponse);
+  rpc DeleteReview(DeleteReviewRequest) returns (EmptyResponse);
+}

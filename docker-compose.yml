@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  auth_service:
+    image: authserver
+    ports:
+      - "8080:8080"
+
+  review_service:
+    image: reviewserver
+    ports:
+      - "8081:8081"
